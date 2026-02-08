@@ -5,11 +5,16 @@ def load_csv(path):
 
     papers = []
     for i, row in df.iterrows():
+        doi = str(row.get("DOI", "")).strip()
+        uid = doi if doi else f"P{i}"
+
         papers.append({
-            "uid": f"P{i}",
-            "title": str(row.get("title", "")),
-            "abstract": str(row.get("abstract", "")),
-            "year": row.get("year", None),
-            "doi": row.get("doi", "")
+            "uid": uid,
+            "title": str(row.get("Title", "")),
+            "abstract": str(row.get("Abstract Note", "")),
+            "year": row.get("Publication Year", None),
+            "doi": doi,
+            "source": "zotero"
         })
+
     return papers
