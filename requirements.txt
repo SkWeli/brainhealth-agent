@@ -1,0 +1,6 @@
+pandas
+numpy
+tqdm
+rapidfuzz
+python-dotenv
+openai
